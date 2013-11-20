@@ -1,7 +1,7 @@
 {
-    "name": "core2pl/foo",
+    "name": "core2pl/sp_new",
     "require": {
         "php": ">=5.3.3",
-        "core2pl/bar": "*"
+        "core2pl/foo": "*"
     }
 }
