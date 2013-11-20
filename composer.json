@@ -1,0 +1,7 @@
+{
+    "name": "core2pl/foo",
+    "require": {
+        "php": ">=5.3.3",
+        "core2pl/bar": "*"
+    }
+}
