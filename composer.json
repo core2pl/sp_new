@@ -2,6 +2,6 @@
     "name": "core2pl/sp_new",
     "require": {
         "php": ">=5.3.3",
-        "core2pl/foo": "*"
+        "core2pl/foo": "dev-dev"
     }
 }

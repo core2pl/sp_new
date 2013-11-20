@@ -1,19 +1,21 @@
 <?php
 
+namespace core;
+
 class core2 {
 
     protected  static $instance = null;
 
     public function __construct() {
-        $this->in = new in();
-        $this->db = new db();
-        $this->router = new router();
-        $this->bundler = new bundler();
-        $this->em = new em();
-        $this->out = new out();
+        $this->in = new \core\in();
+        $this->db = new \core\db();
+        $this->router = new \core\router();
+        $this->bundler = new \core\bundler();
+        $this->em = new \core\em();
+        $this->out = new \core\out();
 
         $this->bundles = array(
-            new core2pl\foo\foo()
+            new \core2pl\foo\foo()
         );
 
         core2::$instance = $this;
