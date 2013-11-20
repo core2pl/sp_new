@@ -1,16 +1,15 @@
 <?php
 
-function spAutoload($class) {
-    if ($class == 'engine\PDO') return;
-    $class = str_replace(array('\\', 'vendor\\', 'core\\'), array(DIRECTORY_SEPARATOR, '', ''), $class);
-    $file = $class.'.class.php';
+function core2Autoload($class) {
+    if (strpos($class, 'core\\') === false) {
+        $file = __DIR__.'\vendor\\'.$class.'.class.php';
+    } else {
+        $file = __DIR__.'\\'.$class.'.class.php';
+    }
+    $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
     try {
-        if (is_file(__DIR__.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.$file) ) {
-            require __DIR__.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.$file;
-            return true;
-        }
-        if (is_file(__DIR__.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$file)) {
-            require __DIR__.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$file;
+        if (is_file($file) ) {
+            require $file;
             return true;
         }
     } catch (Exception $e) {
@@ -18,4 +17,4 @@ function spAutoload($class) {
     }
 }
 
-spl_autoload_register('spAutoload');
+spl_autoload_register('core2Autoload');
